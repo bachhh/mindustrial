@@ -22,14 +22,11 @@ The equivalent in MASM, please note that all jump label should be replaced by li
 ```masm
 jump %IF% lessThan a b
 jump %ELSE% always
-IF:
-print "a less than b"
+IF: print "a less than b"
 jump %OUTSIDE% always
-ELSE:
-print "b greater or equal a"
+ELSE: print "b greater or equal a"
 jump %OUTSIDE% always
-OUTSIDE:
-print "outside"
+OUTSIDE: print "outside"
 ```
 
 
@@ -47,10 +44,8 @@ printf("outside")
 ```masm
 jump %INSIDE% lessThan a b
 jump %OUTSIDE always
-INSIDE:
-print "a less than b"
-OUTSIDE:
-printf "outside"
+INSIDE: print "a less than b"
+OUTSIDE: printf "outside"
 ```
 
 ### if if-else else
@@ -67,25 +62,20 @@ if (a < b) {
 printf("outside")
 ```
 
+The following code could also be scaled infinitely
 
 ```masm
 jump %IF% lessThan a b
 jump %IFELSE1% equal a b
     // ... infinite number of if-else clause
 jump %ELSE% always
-IF:
-print "a less than b"
+IF: print "a less than b"
 jump %OUTSIDE% always
-IFELSE1:
-print "a equal b"
+IFELSE1: print "a equal b"
 jump %OUTSIDE% always
     // ... infinite number of if-else body
-    IFELSE-N:
-    // ... body
-    jump %OUTSIDE% always
-ELSE:
-print "b greater or equal a"
+    IFELSE-N: jump %OUTSIDE% always
+ELSE: print "b greater or equal a"
 jump %OUTSIDE% always
-OUTSIDE:
-print "outside"
+OUTSIDE: print "outside"
 ```
