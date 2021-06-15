@@ -1,22 +1,22 @@
 set CI @copper
 print "START LOOP"
 printflush message1
-jump 18 equal CI @copper
-jump 20 equal CI @lead
-jump 22 equal CI @plastanium
-jump 24 equal CI @phase-fabric
-jump 26 equal CI @surge-alloy
-jump 28 equal CI @spore-pod
-jump 30 equal CI @blast-compound
-jump 32 equal CI @pyratite
-jump 34 equal CI @metaglass
-jump 36 equal CI @graphite
-jump 38 equal CI @sand
-jump 40 equal CI @coal
-jump 42 equal CI @titanium
-jump 44 equal CI @thorium
-jump 46 equal CI @scrap
-jump 48 equal CI @silicon
+jump 19 equal CI @copper
+jump 21 equal CI @lead
+jump 23 equal CI @plastanium
+jump 25 equal CI @phase-fabric
+jump 27 equal CI @surge-alloy
+jump 29 equal CI @spore-pod
+jump 31 equal CI @blast-compound
+jump 33 equal CI @pyratite
+jump 35 equal CI @metaglass
+jump 37 equal CI @graphite
+jump 39 equal CI @sand
+jump 41 equal CI @coal
+jump 43 equal CI @titanium
+jump 45 equal CI @thorium
+jump 47 equal CI @scrap
+jump 49 equal CI @silicon
 set CI @lead
 jump 51 always
 set CI @plastanium
@@ -49,13 +49,9 @@ set CI @silicon
 jump 51 always
 set CI @copper
 jump 51 always
-sensor ciCount vault1 CI // get item count of this type
-jump 60 lessThan ciCount 10 // minimum resources to consider is 10 ( since plasta belt pack items in batch of 10 )
 control configure unloader1 CI 1 0 0 0
 set DELAY 50
 set timer 0
 op add timer timer 1
-sensor ciCount vault1 CI // keep checking if item count is less than 10, immediately switch out if item ran out
-jump 60 lessThan ciCount 10
-jump 56 lessThanEq timer DELAY // loop
-jump 1 always // start while loop again
+jump 54 lessThanEq timer DELAY
+jump 1 always
