@@ -49,9 +49,13 @@ set CI @silicon
 jump 51 always
 set CI @copper
 jump 51 always
+sensor result vault1 CI
+jump 60 lessThanEq result 10
 control configure unloader1 CI 1 0 0 0
 set DELAY 50
 set timer 0
 op add timer timer 1
-jump 54 lessThanEq timer DELAY
+sensor result vault1 CI
+jump 60 lessThanEq result 10
+jump 56 lessThanEq timer DELAY
 jump 1 always
