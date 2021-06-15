@@ -1,0 +1,10 @@
+set cu 0
+getlink cul cu
+sensor cfg unloader1 @config
+print cfg
+printflush message1
+op add cu cu 1
+op mod cu cu @links
+op max cu cu 1
+control configure cul cfg 0 0 0
+jump 1 always x false
