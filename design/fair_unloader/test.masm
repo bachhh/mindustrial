@@ -1,0 +1,5 @@
+set CI copper
+set skip @counter
+op add skip 2
+jump skip equal CI copper
+set CI graphite

@@ -1,0 +1,28 @@
+set DELAY 0
+set CI copper
+
+// LABEL : L
+// switch statement that enumerate all resource's types
+
+write @copper cell1 0
+write @graphite cell1 1
+
+sensor count vault1 @ci
+jump 4 lessThan count 1000
+end
+
+// LOOP:
+set timer 0
+op add timer timer 1
+// check if
+jump 10 lessThanEq timer DELAY // loop
+sensor result block1 @copper
+
+// GOTO L
+jump 3 always x false
+
+// start loop
+set currentType 1
+control configure unloader currentType 1 0 0 0
+op add currentType currentType 1
+jump 1 always
