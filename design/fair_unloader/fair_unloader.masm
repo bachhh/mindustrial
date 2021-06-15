@@ -1,17 +1,64 @@
-set DELAY 0
-set CI copper
+set CI @copper
+print "START LOOP"
+jump 4 notEqual @silicon
+set CI @copper
+jump 52 always
+jump 6 notEqual @copper
+set CI @lead
+jump 52 always
+jump 8 notEqual @lead
+set CI @plastanium
+jump 52 always
+jump 10 notEqual @plastanium
+set CI @phase-fabric
+jump 52 always
+jump 12 notEqual @phase-fabric
+set CI @phase-fabric
+jump 52 always
+jump 14 notEqual @surge-alloy
+set CI @surge-alloy
+jump 52 always
+jump 16 notEqual @spore-pod
+set CI @spore-pod
+jump 52 always
+jump 18 notEqual @blast-compound
+set CI @blast-compound
+jump 52 always
+jump 20 notEqual @pyratite
+set CI @pyratite
+jump 52 always
+jump 22 notEqual @metaglass
+set CI @metaglass
+jump 52 always
+jump 24 notEqual @graphite
+set CI @graphite
+jump 52 always
+jump 26 notEqual @sand
+set CI @sand
+jump 52 always
+jump 28 notEqual @coal
+set CI @coal
+jump 52 always
+jump 30 notEqual @titanium
+set CI @titanium
+jump 52 always
+jump 32 notEqual @thorium
+set CI @thorium
+jump 52 always
+jump 34 notEqual @scrap
+set CI @scrap
+jump 52 always
+jump 2 notEqual @silicon
+set CI @silicon
+sensor ciCount vault1 CI
+jump 2 lessThan ciCount 10 // minimum resources to consider is 10 ( since plasta belt pack items in batch of 10 )
+control configure unloader1 CI 1 0 0 0
 
-// LABEL : L
-// switch statement that enumerate all resource's types
-
-write @copper cell1 0
-write @graphite cell1 1
-
-sensor count vault1 @ci
-jump 4 lessThan count 1000
-end
+sensor result vault1 @copper
+jump -1 lessThan x false
 
 // LOOP:
+set DELAY 0
 set timer 0
 op add timer timer 1
 // check if
@@ -23,6 +70,5 @@ jump 3 always x false
 
 // start loop
 set currentType 1
-control configure unloader currentType 1 0 0 0
 op add currentType currentType 1
 jump 1 always

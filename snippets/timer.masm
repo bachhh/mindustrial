@@ -1,0 +1,4 @@
+set DELAY 0
+set timer 0
+op add timer timer 1
+jump 1 lessThanEq timer DELAY // loop
