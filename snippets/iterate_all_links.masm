@@ -1,0 +1,5 @@
+set c 0
+op add c c 1
+op mod c c 0
+getlink l c
+jump 1 always x false

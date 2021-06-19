@@ -1,0 +1,36 @@
+set net 0
+set l projector1
+set c 0
+op add c c 1
+op mod c c @links
+getlink l c
+sensor aa node1 @powerNetIn
+sensor bb node1 @powerNetOut
+op sub net aa bb
+print net
+printflush message1
+jump 14 lessThan net 0
+control enabled l 1 0 0 0
+jump 15 always x false
+control enabled l 0 0 0 0
+jump 2 always x false
+
+
+set net 0
+set l projector1
+set c 0
+op add c c 1
+op mod c c @links
+getlink l c
+sensor aa node1 @powerNetIn
+sensor bb node1 @powerNetOut
+op sub net aa bb
+print net
+printflush message1
+print l
+printflush message2
+jump 16 lessThan net 0.00
+control enabled l 1 0 0 0
+jump 17 always x false
+control enabled l 0 0 0 0
+jump 3 always x false

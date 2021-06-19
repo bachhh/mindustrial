@@ -1,0 +1,3 @@
+sensor aa node1 @powerNetIn
+sensor bb node1 @powerNetOut
+op sub net aa bb
