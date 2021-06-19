@@ -2,22 +2,23 @@ set unit @flare
 set resource @copper
 set sourceBuilding core
 set targetBuilding smelter1
+set resourceLimit
 op rand flag 9999999999999 b
-jump 7 notEqual @unit null
+jump 8 notEqual @unit null
 ubind unit
 sensor F @unit @flag
-jump 10 equal F flag
-jump 6 notEqual F 0
+jump 11 equal F flag
+jump 7 notEqual F 0
 ucontrol flag flag 0 0 0 0
-jump 5 equal flag null
+jump 6 equal flag null
 sensor storage @unit @totalItems
-jump 18 greaterThan storage 1
+jump 19 greaterThan storage 1
 ulocate building sourceBuilding false resource outx outy found building
 ucontrol approach outx outy 3 0 0
-ucontrol itemTake building resource 20 0 0
-jump 12 always x false
+ucontrol itemTake building resource resourceLimit 0 0
+jump 13 always x false
 sensor x targetBuilding @x
 sensor y targetBuilding @y
 ucontrol approach x y 3 0 0
-ucontrol itemDrop targetBuilding 20 0 0 0
-jump 5 always x false
+ucontrol itemDrop targetBuilding resourceLimit 0 0 0
+jump 6 always x false
