@@ -1,0 +1,5 @@
+ubind @flare
+sensor x container1 @x
+sensor y container1 @y
+ucontrol move x y 0 0 0
+ucontrol itemTake container1 @pyratite 10 0 0
